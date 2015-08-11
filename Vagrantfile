@@ -102,6 +102,8 @@ Vagrant.configure("2") do |config|
         config.vm.network "forwarded_port", guest: 2375, host: ($expose_docker_tcp + i - 1), auto_correct: true
       end
 
+      # sunny
+      config.vm.network "forwarded_port", guest: 22, host:2200, id: 'ssh'
       $forwarded_ports.each do |guest, host|
         config.vm.network "forwarded_port", guest: guest, host: host, auto_correct: true
       end
